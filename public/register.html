@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Register as a citizen on SatyaDrishti — submit civic complaints to BBMP Bengaluru for verification.">
+  <meta name="theme-color" content="#060e1a">
+  <title>Citizen Registration — SatyaDrishti</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar" id="mainNav">
+    <div class="nav-container">
+      <a href="/" class="brand-logo">
+        <div class="logo-badge" aria-label="SatyaDrishti logo">
+          <svg viewBox="0 0 220 220" aria-hidden="true">
+            <defs>
+              <linearGradient id="satyaShieldGrad5" x1="0%" x2="100%" y1="0%" y2="100%">
+                <stop offset="0%" stop-color="#0f4b6d"/>
+                <stop offset="35%" stop-color="#0a6f9a"/>
+                <stop offset="60%" stop-color="#0d5d8f"/>
+                <stop offset="100%" stop-color="#0c2b4a"/>
+              </linearGradient>
+              <linearGradient id="satyaRightGlow5" x1="0%" x2="100%" y1="0%" y2="0%">
+                <stop offset="0%" stop-color="#1bbf9c"/>
+                <stop offset="100%" stop-color="#0d6d67"/>
+              </linearGradient>
+              <radialGradient id="satyaLensGrad5" cx="50%" cy="50%" r="60%">
+                <stop offset="0%" stop-color="#ffffff"/>
+                <stop offset="30%" stop-color="#dfeaf8"/>
+                <stop offset="65%" stop-color="#9aaec7"/>
+                <stop offset="100%" stop-color="#112640"/>
+              </radialGradient>
+            </defs>
+            <path d="M110 12C163 12 202 32 214 78L201 167C188 190 155 211 110 222C65 211 32 190 19 167L6 78C18 32 57 12 110 12Z" fill="url(#satyaShieldGrad5)" stroke="#f2f5ff" stroke-width="6" stroke-linejoin="round"/>
+            <path d="M110 25C160 25 190 43 200 80L190 156C178 176 150 193 110 204C70 193 42 176 30 156L20 80C30 43 60 25 110 25Z" fill="rgba(255,255,255,0.04)"/>
+            <path d="M110 22L184 44L180 134C168 160 142 177 110 190C78 177 52 160 40 134L36 44L110 22Z" fill="url(#satyaRightGlow5)" opacity="0.72"/>
+            <path d="M110 28C150 28 176 42 187 70L178 143C167 164 145 178 110 189C75 178 53 164 42 143L33 70C44 42 70 28 110 28Z" fill="none" stroke="#dfeeff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.95"/>
+            <path d="M42 100C57 75 80 60 110 60C140 60 163 75 178 100C163 125 140 140 110 140C80 140 57 125 42 100Z" fill="none" stroke="#eff7ff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="110" cy="100" r="42" fill="url(#satyaLensGrad5)"/>
+            <circle cx="110" cy="100" r="31" fill="#0f2242" stroke="#f7fbff" stroke-width="7"/>
+            <path d="M80 100C94 84 101 77 110 77C119 77 126 84 140 100C126 116 119 123 110 123C101 123 94 116 80 100Z" fill="#dfeaff" opacity="0.9"/>
+            <circle cx="110" cy="100" r="10" fill="#edf6ff"/>
+            <circle cx="110" cy="100" r="3.8" fill="#0f2242"/>
+            <path d="M82 61L90 54M140 54L148 61M84 140L92 148M138 148L146 140" stroke="#edf6ff" stroke-width="4" stroke-linecap="round" opacity="0.8"/>
+            <path d="M110 62V48M110 150V162M62 100H48M172 100H158" stroke="#edf6ff" stroke-width="4" stroke-linecap="round" opacity="0.7"/>
+            <g fill="#f3fbff" stroke="#dbe7ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="183" cy="73" r="4"/>
+              <circle cx="194" cy="86" r="4"/>
+              <circle cx="198" cy="102" r="4"/>
+              <circle cx="191" cy="118" r="4"/>
+              <circle cx="175" cy="132" r="4"/>
+              <path d="M183 73L169 82L162 95L174 109L190 120" fill="none"/>
+            </g>
+            <path d="M153 120L168 133L182 140" stroke="#f5fbff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.92"/>
+          </svg>
+        </div>
+        <span>SatyaDrishti</span>
+        <span class="brand-tag">CITIZEN ACCESS</span>
+      </a>
+      <div class="nav-actions">
+        <a href="/login" class="btn btn-secondary btn-sm">Existing Account? Sign In</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Registration Form -->
+  <div class="container auth-container">
+    <div class="glass-card auth-card-wide">
+
+      <div class="auth-header">
+        <div class="auth-icon">📝</div>
+        <h1 class="auth-title">Citizen Registration</h1>
+        <p class="auth-subtitle">
+          Register to submit civic complaints to Bruhat Bengaluru Mahanagara Palike for review
+        </p>
+      </div>
+
+      <div id="registerAlert" class="alert-box"></div>
+
+      <form id="registerForm">
+        <div class="form-group">
+          <label class="form-label" for="regName">Full Name</label>
+          <input type="text" id="regName" class="form-input" placeholder="e.g. Ramesh Kumar" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="regEmail">Email Address</label>
+          <input type="email" id="regEmail" class="form-input" placeholder="name@domain.com" required autocomplete="email">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="regPhone">Mobile Phone (for OTP / updates)</label>
+          <input type="tel" id="regPhone" class="form-input" placeholder="+91 98450 XXXXX" value="+91 98450 12345">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="regWard">Primary BBMP Ward / Zone</label>
+          <select id="regWard" class="form-select">
+            <option value="Ward 80 - Dayananda Nagar / Indiranagar">Ward 80 - Dayananda Nagar / Indiranagar</option>
+            <option value="Ward 112 - Domlur">Ward 112 - Domlur</option>
+            <option value="Ward 151 - Koramangala">Ward 151 - Koramangala</option>
+            <option value="Ward 45 - Malleshwaram">Ward 45 - Malleshwaram</option>
+            <option value="Ward 84 - Rajajinagar">Ward 84 - Rajajinagar</option>
+            <option value="Ward 174 - HSR Layout">Ward 174 - HSR Layout</option>
+            <option value="Ward 85 - Doddanekkundi / Whitefield">Ward 85 - Doddanekkundi / Whitefield</option>
+            <option value="Ward 160 - Jayanagar">Ward 160 - Jayanagar</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="regRole">Account Type</label>
+          <select id="regRole" class="form-select">
+            <option value="citizen">Citizen (Raise & Track Grievances)</option>
+            <option value="investigator">BBMP Investigator (Triage & Verify Queue)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="regPassword">Password (Encrypted via bcrypt)</label>
+          <input type="password" id="regPassword" class="form-input" placeholder="At least 6 characters" required autocomplete="new-password">
+        </div>
+
+        <button type="submit" class="btn btn-primary w-full mt-1" id="regSubmitBtn">
+          Create Verified Account
+        </button>
+      </form>
+
+      <div class="auth-footer">
+        Already have an account? <a href="/login">Sign in here</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container mb-0">
+      <p class="color-dim">SatyaDrishti &bull; Civic Complaint Platform &bull; BBMP Services</p>
+    </div>
+  </footer>
+
+  <script src="/js/app.js"></script>
+  <script>
+    document.getElementById('registerForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const name = document.getElementById('regName').value;
+      const email = document.getElementById('regEmail').value;
+      const phone = document.getElementById('regPhone').value;
+      const ward = document.getElementById('regWard').value;
+      const role = document.getElementById('regRole').value;
+      const password = document.getElementById('regPassword').value;
+      const alertBox = document.getElementById('registerAlert');
+      const submitBtn = document.getElementById('regSubmitBtn');
+
+      submitBtn.disabled = true;
+      submitBtn.innerText = 'Creating account...';
+
+      try {
+        const res = await fetch('/api/auth/register', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, email, phone, ward, role, password })
+        });
+        const data = await res.json();
+
+        if (res.ok) {
+          alertBox.style.display = 'block';
+          alertBox.style.background = 'rgba(16, 185, 129, 0.15)';
+          alertBox.style.color = '#34d399';
+          alertBox.style.border = '1px solid rgba(16, 185, 129, 0.3)';
+          alertBox.innerText = 'Registration successful! Signing in...';
+
+          setTimeout(() => {
+            if (role === 'investigator') {
+              window.location.href = '/investigator';
+            } else {
+              window.location.href = '/dashboard';
+            }
+          }, 600);
+        } else {
+          alertBox.style.display = 'block';
+          alertBox.style.background = 'rgba(239, 68, 68, 0.15)';
+          alertBox.style.color = '#f87171';
+          alertBox.style.border = '1px solid rgba(239, 68, 68, 0.3)';
+          alertBox.innerText = data.error || 'Failed to create account.';
+          submitBtn.disabled = false;
+          submitBtn.innerText = 'Create Verified Account';
+        }
+      } catch (err) {
+        alertBox.style.display = 'block';
+        alertBox.style.background = 'rgba(239, 68, 68, 0.15)';
+        alertBox.style.color = '#f87171';
+        alertBox.innerText = 'Network error occurred.';
+        submitBtn.disabled = false;
+        submitBtn.innerText = 'Create Verified Account';
+      }
+    });
+  </script>
+</body>
+</html>

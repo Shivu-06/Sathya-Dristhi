@@ -1,0 +1,33 @@
+{
+  "name": "satyadrishti",
+  "version": "1.0.0",
+  "description": "SatyaDrishti: Fake Complaint Detection Using Computer Vision for BBMP Grievance Intake",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "dev": "node server/server.js",
+    "ai": "python ai_service/ai_engine.py",
+    "train": "python ai_service/train_and_evaluate.py",
+    "download-models": "python ai_service/download_models.py",
+    "zip": "node export_project.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^1.4.5-lts.1"
+  },
+  "keywords": [
+    "fake-complaint-detection",
+    "computer-vision",
+    "cnn",
+    "error-level-analysis",
+    "bbmp",
+    "image-forensics",
+    "multimodal-ai"
+  ],
+  "author": "Vamshi Reddy, Ullas B K, Shivakumar S, Prof. Kishor Malakar (Dayananda Sagar University)",
+  "license": "MIT"
+}

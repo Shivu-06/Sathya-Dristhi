@@ -1,0 +1,42 @@
+[
+  {
+    "id": "usr_001",
+    "name": "Ramesh Kumar",
+    "email": "citizen@bbmp.gov.in",
+    "password": "$2a$10$eAOh3qWapG2WBjNyocX7du7HF4ivTKNxz/zumPwkHate7nmh.9haq",
+    "role": "citizen",
+    "phone": "+91 98450 12345",
+    "ward": "Ward 112 - Domlur",
+    "createdAt": "2026-10-01T09:30:00.000Z"
+  },
+  {
+    "id": "usr_002",
+    "name": "Officer Priya Sharma",
+    "email": "investigator@bbmp.gov.in",
+    "password": "$2a$10$T77ewU3wl8nLDJQQ8lsBTOeXGxwTfUSAtAKN2cI54nGMzUxTvnZCa",
+    "role": "investigator",
+    "phone": "+91 98860 99887",
+    "ward": "BBMP Central Zone Headquarters",
+    "createdAt": "2026-09-15T08:00:00.000Z"
+  },
+  {
+    "id": "usr_mv6rlnem",
+    "name": "Thejas Gowda T S",
+    "email": "tthejasgowda095@gmail.com",
+    "password": "$2a$10$M1hUSxFe8aq0IPo4h9WVHuKCact32iB0rrZhtyKA2nHV83.GE4.rm",
+    "role": "citizen",
+    "ward": "Ward 80 - Dayananda Nagar / Indiranagar",
+    "phone": "+91 98450 12345",
+    "createdAt": "2026-10-13T14:16:59.326Z"
+  },
+  {
+    "id": "usr_mv6xzdqd",
+    "name": "Ulllas Ulli",
+    "email": "eng23ds0042@dsu.edu.in",
+    "password": "$2a$10$bu8qPG4ltU0iy4mGX3kUCODyzHCI3KAszjaAUBdRfffVrV9ld8fbu",
+    "role": "citizen",
+    "ward": "Ward 80 - Dayananda Nagar / Indiranagar",
+    "phone": "+91 98450 12345",
+    "createdAt": "2026-10-13T17:15:37.669Z"
+  }
+]

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SatyaDrishti operational evaluation metrics, model confidence, and multimodal verification benchmarks for civic complaint screening.">
+  <meta name="theme-color" content="#060e1a">
+  <title>Operational Evaluation — SatyaDrishti</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar" id="mainNav">
+    <div class="nav-container">
+      <a href="/" class="brand-logo">
+        <div class="logo-badge" aria-label="SatyaDrishti logo">
+          <svg viewBox="0 0 220 220" aria-hidden="true">
+            <defs>
+              <linearGradient id="satyaShieldGrad6" x1="0%" x2="100%" y1="0%" y2="100%">
+                <stop offset="0%" stop-color="#0f4b6d"/>
+                <stop offset="35%" stop-color="#0a6f9a"/>
+                <stop offset="60%" stop-color="#0d5d8f"/>
+                <stop offset="100%" stop-color="#0c2b4a"/>
+              </linearGradient>
+              <linearGradient id="satyaRightGlow6" x1="0%" x2="100%" y1="0%" y2="0%">
+                <stop offset="0%" stop-color="#1bbf9c"/>
+                <stop offset="100%" stop-color="#0d6d67"/>
+              </linearGradient>
+              <radialGradient id="satyaLensGrad6" cx="50%" cy="50%" r="60%">
+                <stop offset="0%" stop-color="#ffffff"/>
+                <stop offset="30%" stop-color="#dfeaf8"/>
+                <stop offset="65%" stop-color="#9aaec7"/>
+                <stop offset="100%" stop-color="#112640"/>
+              </radialGradient>
+            </defs>
+            <path d="M110 12C163 12 202 32 214 78L201 167C188 190 155 211 110 222C65 211 32 190 19 167L6 78C18 32 57 12 110 12Z" fill="url(#satyaShieldGrad6)" stroke="#f2f5ff" stroke-width="6" stroke-linejoin="round"/>
+            <path d="M110 25C160 25 190 43 200 80L190 156C178 176 150 193 110 204C70 193 42 176 30 156L20 80C30 43 60 25 110 25Z" fill="rgba(255,255,255,0.04)"/>
+            <path d="M110 22L184 44L180 134C168 160 142 177 110 190C78 177 52 160 40 134L36 44L110 22Z" fill="url(#satyaRightGlow6)" opacity="0.72"/>
+            <path d="M110 28C150 28 176 42 187 70L178 143C167 164 145 178 110 189C75 178 53 164 42 143L33 70C44 42 70 28 110 28Z" fill="none" stroke="#dfeeff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.95"/>
+            <path d="M42 100C57 75 80 60 110 60C140 60 163 75 178 100C163 125 140 140 110 140C80 140 57 125 42 100Z" fill="none" stroke="#eff7ff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="110" cy="100" r="42" fill="url(#satyaLensGrad6)"/>
+            <circle cx="110" cy="100" r="31" fill="#0f2242" stroke="#f7fbff" stroke-width="7"/>
+            <path d="M80 100C94 84 101 77 110 77C119 77 126 84 140 100C126 116 119 123 110 123C101 123 94 116 80 100Z" fill="#dfeaff" opacity="0.9"/>
+            <circle cx="110" cy="100" r="10" fill="#edf6ff"/>
+            <circle cx="110" cy="100" r="3.8" fill="#0f2242"/>
+            <path d="M82 61L90 54M140 54L148 61M84 140L92 148M138 148L146 140" stroke="#edf6ff" stroke-width="4" stroke-linecap="round" opacity="0.8"/>
+            <path d="M110 62V48M110 150V162M62 100H48M172 100H158" stroke="#edf6ff" stroke-width="4" stroke-linecap="round" opacity="0.7"/>
+            <g fill="#f3fbff" stroke="#dbe7ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="183" cy="73" r="4"/>
+              <circle cx="194" cy="86" r="4"/>
+              <circle cx="198" cy="102" r="4"/>
+              <circle cx="191" cy="118" r="4"/>
+              <circle cx="175" cy="132" r="4"/>
+              <path d="M183 73L169 82L162 95L174 109L190 120" fill="none"/>
+            </g>
+            <path d="M153 120L168 133L182 140" stroke="#f5fbff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.92"/>
+          </svg>
+        </div>
+        <span>SatyaDrishti</span>
+        <span class="brand-tag">OPS METRICS</span>
+      </a>
+
+      <button class="nav-hamburger" id="navHamburger" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+
+      <div class="nav-links" id="navLinks">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/dashboard" class="nav-link">Citizen Portal</a>
+        <a href="/investigator" class="nav-link">Investigator Queue</a>
+        <a href="/evaluation" class="nav-link active">Evaluation</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Container -->
+  <main class="container">
+
+    <!-- Paper Title Header -->
+    <div class="glass-card paper-header fade-in">
+      <div class="badge badge-low-risk mb-1">BBMP Civic Monitoring System</div>
+      <h1 class="paper-title">
+        SatyaDrishti: Complaint Verification and Fraud Detection Platform
+      </h1>
+      <p class="paper-authors">
+        Automated grievance screening for Bengaluru civic operations with multimodal evidence analysis and risk scoring.
+      </p>
+
+      <div class="flex-row gap-md flex-wrap">
+        <button id="btnRunBenchmark" class="btn btn-bbmp">
+          ⚡ Run Live Model Evaluation
+        </button>
+      </div>
+    </div>
+
+    <!-- Live Evaluation Metrics Table (Table VI) -->
+    <section class="glass-card metrics-section fade-in">
+      <div class="metrics-header">
+        <div>
+          <h2>TABLE VI: Experimental Performance Across Pipeline Configurations</h2>
+          <p class="color-muted" style="font-size: 0.85rem;">
+            Computed using Equations (5)-(8): Accuracy, Precision, Recall, and F1-Score on held-out test splits
+          </p>
+        </div>
+        <span class="badge badge-low-risk" id="benchmarkStatus">Benchmark Validated</span>
+      </div>
+
+      <div class="table-responsive">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Pipeline Configuration</th>
+              <th class="mono">Accuracy (Eq. 5)</th>
+              <th class="mono">Precision (Eq. 6)</th>
+              <th class="mono">Recall (Eq. 7)</th>
+              <th class="mono">F1-Score (Eq. 8)</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="metricsTableBody">
+            <tr>
+              <td><strong>1. CNN Only</strong> (Sobel/Laplacian Visual Features)</td>
+              <td class="mono" id="mCnnAcc">78.50%</td>
+              <td class="mono" id="mCnnPrec">76.20%</td>
+              <td class="mono" id="mCnnRec">81.00%</td>
+              <td class="mono" id="mCnnF1">78.53%</td>
+              <td><span class="badge badge-under-action">Baseline</span></td>
+            </tr>
+            <tr>
+              <td><strong>2. + Image Forensics</strong> (ELA + EXIF + Duplicate Hash)</td>
+              <td class="mono" id="mForAcc">88.75%</td>
+              <td class="mono" id="mForPrec">89.10%</td>
+              <td class="mono" id="mForRec">87.50%</td>
+              <td class="mono" id="mForF1">88.29%</td>
+              <td><span class="badge badge-low-risk">+10.2% Boost</span></td>
+            </tr>
+            <tr style="background: rgba(99, 102, 241, 0.08);">
+              <td><strong>3. + Text + Cross-Modal (Full Multimodal SatyaDrishti)</strong></td>
+              <td class="mono fw-800 color-success" id="mMultiAcc">96.25%</td>
+              <td class="mono fw-800 color-success" id="mMultiPrec">97.40%</td>
+              <td class="mono fw-800 color-success" id="mMultiRec">95.00%</td>
+              <td class="mono fw-800 color-success" id="mMultiF1">96.18%</td>
+              <td><span class="badge badge-low-risk" style="background: rgba(16, 185, 129, 0.25);">⭐ Optimal</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Confusion Matrix & Equations Grid -->
+    <div class="eval-grid">
+
+      <!-- Confusion Matrix Card (Fig. 6) -->
+      <section class="glass-card fade-in">
+        <h3 class="mb-1">Figure 6: Binary Confusion Matrix (Genuine vs Fake)</h3>
+        <p class="color-muted mb-3" style="font-size: 0.85rem;">
+          Evaluating True Positive (manipulated identified), True Negative (authentic accepted), False Positive, and False Negative.
+        </p>
+
+        <div class="confusion-grid">
+          <div class="cm-cell cm-cell-tn">
+            <div class="cm-value color-success" id="cmTN">39</div>
+            <div class="cm-title">True Negative (TN)</div>
+            <div class="cm-desc">Genuine complaint correctly accepted</div>
+          </div>
+
+          <div class="cm-cell cm-cell-fp">
+            <div class="cm-value color-danger" id="cmFP">1</div>
+            <div class="cm-title">False Positive (FP)</div>
+            <div class="cm-desc">Genuine complaint incorrectly flagged</div>
+          </div>
+
+          <div class="cm-cell cm-cell-fn">
+            <div class="cm-value color-warning" id="cmFN">2</div>
+            <div class="cm-title">False Negative (FN)</div>
+            <div class="cm-desc">Manipulated evidence missed</div>
+          </div>
+
+          <div class="cm-cell cm-cell-tp">
+            <div class="cm-value color-primary" id="cmTP">38</div>
+            <div class="cm-title">True Positive (TP)</div>
+            <div class="cm-desc">Manipulated evidence correctly detected</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Workload Reduction & Mathematical Formulas -->
+      <section class="glass-card fade-in">
+        <h3 class="mb-1">Equations &amp; Workload Reduction Analysis</h3>
+        <p class="color-muted mb-3" style="font-size: 0.85rem;">
+          From Section VII and Section X: Triage Efficiency Gains for BBMP
+        </p>
+
+        <div class="eq-block">
+          <div class="eq-label">Equation (3) - Multimodal Fusion:</div>
+          <code class="eq-code">S = 0.35·s_img + 0.25·s_for + 0.25·s_x + 0.15·s_txt</code>
+        </div>
+
+        <div class="eq-block">
+          <div class="eq-label">Equation (9) &amp; (10) - Triage Time Complexity:</div>
+          <div class="mono color-danger" style="font-size: 0.85rem; margin-bottom: 0.25rem;">T_manual = N · t</div>
+          <div class="mono color-success" style="font-size: 0.85rem;">T_triage = N · t_a + p · N · t</div>
+        </div>
+
+        <p class="color-dim" style="font-size: 0.85rem; line-height: 1.5;">
+          Where <code class="mono color-white">t_a &lt;&lt; t</code> (automated inference latency is under 0.8 seconds compared to 15 minutes manual inspection) and <code class="mono color-white">p ≈ 0.15</code> (only flagged complaints require full audit). Manual human inspection effort decreases by over <strong>75%</strong>.
+        </p>
+      </section>
+
+    </div>
+
+    <!-- Research Paper Tables Overview (Table I & Table IV) -->
+    <div class="eval-grid">
+      <!-- Table I -->
+      <section class="glass-card fade-in">
+        <h4 class="mb-2">TABLE I: Comparison of Related Directions</h4>
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Direction</th>
+                <th>Image</th>
+                <th>Text</th>
+                <th>Explainable Score</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Grievance workflow [1], [3]</td>
+                <td>❌ No</td>
+                <td>⚠️ Partial</td>
+                <td>❌ No</td>
+              </tr>
+              <tr>
+                <td>Forensic CNNs [2], [4]-[7]</td>
+                <td>✅ Yes</td>
+                <td>❌ No</td>
+                <td>⚠️ Rarely</td>
+              </tr>
+              <tr>
+                <td>Vision-Language [9], [10]</td>
+                <td>⚠️ Indirect</td>
+                <td>✅ Yes</td>
+                <td>❌ No</td>
+              </tr>
+              <tr style="background: rgba(99, 102, 241, 0.1);">
+                <td><strong>SatyaDrishti (Proposed)</strong></td>
+                <td><strong>✅ Yes</strong></td>
+                <td><strong>✅ Yes</strong></td>
+                <td><strong>✅ Yes</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Table IV -->
+      <section class="glass-card fade-in">
+        <h4 class="mb-2">TABLE IV: Complaint States &amp; Transitions</h4>
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>State</th>
+                <th>Next Step in Triage Lifecycle</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="badge badge-under-action">Submitted</span></td>
+                <td>Photo and description received; verification queued</td>
+              </tr>
+              <tr>
+                <td><span class="badge badge-low-risk">Verified-low</span></td>
+                <td>Low fraud score; moves to front of dispatch queue</td>
+              </tr>
+              <tr>
+                <td><span class="badge badge-flagged">Flagged</span></td>
+                <td>High score; reasons shown; closer human review</td>
+              </tr>
+              <tr>
+                <td><span class="badge badge-under-action">Under action</span></td>
+                <td>Investigator accepted complaint for field resolution</td>
+              </tr>
+              <tr>
+                <td><span class="badge badge-closed">Closed</span></td>
+                <td>Resolved, or rejected with recorded justification</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container mb-0">
+      <p class="mb-1">
+        <strong>SatyaDrishti: Civic Complaint Verification Platform</strong>
+      </p>
+      <p class="color-dim">
+        BBMP Civic Intelligence &bull; Risk Review &bull; Public Service Operations
+      </p>
+    </div>
+  </footer>
+
+  <script src="/js/app.js"></script>
+  <script src="/js/eval.js"></script>
+  <script>
+    // Hamburger toggle
+    const hamburger = document.getElementById('navHamburger');
+    if (hamburger) hamburger.addEventListener('click', () => {
+      document.getElementById('navLinks').classList.toggle('open');
+    });
+
+    // Scroll shadow
+    window.addEventListener('scroll', () => {
+      document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 20);
+    });
+
+    // Scroll-based fade-in
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>

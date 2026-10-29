@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Submit and track civic grievances on SatyaDrishti — complaint screening for BBMP Bengaluru with evidence verification.">
+  <meta name="theme-color" content="#060e1a">
+  <title>Citizen Workspace — SatyaDrishti</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar" id="mainNav">
+    <div class="nav-container">
+      <a href="/" class="brand-logo">
+        <div class="logo-badge" aria-label="SatyaDrishti logo">
+          <svg viewBox="0 0 220 220" aria-hidden="true">
+            <defs>
+              <linearGradient id="satyaShieldGrad2" x1="0%" x2="100%" y1="0%" y2="100%">
+                <stop offset="0%" stop-color="#0f4b6d"/>
+                <stop offset="35%" stop-color="#0a6f9a"/>
+                <stop offset="60%" stop-color="#0d5d8f"/>
+                <stop offset="100%" stop-color="#0c2b4a"/>
+              </linearGradient>
+              <linearGradient id="satyaRightGlow2" x1="0%" x2="100%" y1="0%" y2="0%">
+                <stop offset="0%" stop-color="#1bbf9c"/>
+                <stop offset="100%" stop-color="#0d6d67"/>
+              </linearGradient>
+              <radialGradient id="satyaLensGrad2" cx="50%" cy="50%" r="60%">
+                <stop offset="0%" stop-color="#ffffff"/>
+                <stop offset="30%" stop-color="#dfeaf8"/>
+                <stop offset="65%" stop-color="#9aaec7"/>
+                <stop offset="100%" stop-color="#112640"/>
+              </radialGradient>
+            </defs>
+            <path d="M110 12C163 12 202 32 214 78L201 167C188 190 155 211 110 222C65 211 32 190 19 167L6 78C18 32 57 12 110 12Z" fill="url(#satyaShieldGrad2)" stroke="#f2f5ff" stroke-width="6" stroke-linejoin="round"/>
+            <path d="M110 25C160 25 190 43 200 80L190 156C178 176 150 193 110 204C70 193 42 176 30 156L20 80C30 43 60 25 110 25Z" fill="rgba(255,255,255,0.04)"/>
+            <path d="M110 22L184 44L180 134C168 160 142 177 110 190C78 177 52 160 40 134L36 44L110 22Z" fill="url(#satyaRightGlow2)" opacity="0.72"/>
+            <path d="M110 28C150 28 176 42 187 70L178 143C167 164 145 178 110 189C75 178 53 164 42 143L33 70C44 42 70 28 110 28Z" fill="none" stroke="#dfeeff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.95"/>
+            <path d="M42 100C57 75 80 60 110 60C140 60 163 75 178 100C163 125 140 140 110 140C80 140 57 125 42 100Z" fill="none" stroke="#eff7ff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="110" cy="100" r="42" fill="url(#satyaLensGrad2)"/>
+            <circle cx="110" cy="100" r="31" fill="#0f2242" stroke="#f7fbff" stroke-width="7"/>
+            <path d="M80 100C94 84 101 77 110 77C119 77 126 84 140 100C126 116 119 123 110 123C101 123 94 116 80 100Z" fill="#dfeaff" opacity="0.9"/>
+            <circle cx="110" cy="100" r="10" fill="#edf6ff"/>
+            <circle cx="110" cy="100" r="3.8" fill="#0f2242"/>
+            <path d="M82 61L90 54M140 54L148 61M84 140L92 148M138 148L146 140" stroke="#edf6ff" stroke-width="4" stroke-linecap="round" opacity="0.8"/>
+            <path d="M110 62V48M110 150V162M62 100H48M172 100H158" stroke="#edf6ff" stroke-width="4" stroke-linecap="round" opacity="0.7"/>
+            <g fill="#f3fbff" stroke="#dbe7ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="183" cy="73" r="4"/>
+              <circle cx="194" cy="86" r="4"/>
+              <circle cx="198" cy="102" r="4"/>
+              <circle cx="191" cy="118" r="4"/>
+              <circle cx="175" cy="132" r="4"/>
+              <path d="M183 73L169 82L162 95L174 109L190 120" fill="none"/>
+            </g>
+            <path d="M153 120L168 133L182 140" stroke="#f5fbff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.92"/>
+          </svg>
+        </div>
+        <span>SatyaDrishti</span>
+        <span class="brand-tag">CITIZEN PORTAL</span>
+      </a>
+
+      <button class="nav-hamburger" id="navHamburger" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+
+      <div class="nav-links" id="navLinks">
+        <a href="/dashboard" class="nav-link active">My Dashboard</a>
+        <a href="/evaluation" class="nav-link">Evaluation Metrics</a>
+      </div>
+
+      <div class="nav-actions">
+        <div class="nav-user-info">
+          <div class="nav-user-name" id="navUserName">Citizen User</div>
+          <div class="nav-user-ward" id="navUserWard">BBMP Bengaluru</div>
+        </div>
+        <button id="navLogoutBtn" class="btn btn-secondary btn-sm">Sign Out</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content Container -->
+  <main class="container">
+
+    <!-- Header Banner -->
+    <div class="glass-card welcome-banner">
+      <div class="banner-content">
+        <div>
+          <div class="badge badge-low-risk mb-1">Verified Citizen Session</div>
+          <h1>Welcome, <span id="welcomeCitizenName">Citizen</span></h1>
+          <p class="color-muted mt-1">
+            Submit genuine grievances for BBMP Bengaluru. Evidence is automatically pre-screened via Computer Vision &amp; ELA.
+          </p>
+        </div>
+        <div class="banner-stats">
+          <div class="mini-stat">
+            <div class="mini-stat-value color-primary" id="userComplaintCount">0</div>
+            <div class="mini-stat-label">My Complaints</div>
+          </div>
+          <div class="mini-stat">
+            <div class="mini-stat-value color-success" id="userVerifiedCount">0</div>
+            <div class="mini-stat-label">Verified Low Risk</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2-Column Layout: Submit Complaint Form (Left) & My Complaints (Right) -->
+    <div class="two-col-layout">
+
+      <!-- Submission Form Column -->
+      <section class="glass-card">
+        <div class="section-header">
+          <h2 class="section-title">Submit New Civic Complaint</h2>
+          <span class="badge badge-under-action">Screened</span>
+        </div>
+
+        <form id="complaintForm" enctype="multipart/form-data">
+          <!-- Title -->
+          <div class="form-group">
+            <label class="form-label" for="compTitle">Grievance Title *</label>
+            <input type="text" id="compTitle" class="form-input" placeholder="e.g. Dangerous crater on Indiranagar 100ft road" required>
+          </div>
+
+          <!-- Category -->
+          <div class="form-group">
+            <label class="form-label" for="compCategory">Issue Category *</label>
+            <select id="compCategory" class="form-select" required>
+              <option value="pothole">Road Pothole / Asphalt Crater</option>
+              <option value="garbage">Uncollected Solid Garbage / Waste Dump</option>
+              <option value="streetlight">Defective / Dark Streetlight</option>
+              <option value="water_leak">Water Supply Pipeline Leak / Burst</option>
+              <option value="drainage">Open Sewage / Stormwater Overflow</option>
+              <option value="general_civic">Footpath Encroachment / Civic Obstruction</option>
+            </select>
+          </div>
+
+          <!-- Photo Evidence Upload -->
+          <div class="form-group">
+            <label class="form-label">Photo Evidence (JPG/PNG) *</label>
+            <div class="upload-dropzone" id="dropzone">
+              <input type="file" id="compImage" name="image" accept="image/jpeg,image/png,image/webp" style="display: none;" required>
+              <div class="upload-icon">📷</div>
+              <div class="color-white fw-800 mb-1">Click to browse or drop photograph here</div>
+              <div class="color-dim" style="font-size: 0.8rem;">Max 15MB. JPEG/PNG images will be analyzed by CNN &amp; ELA.</div>
+            </div>
+
+            <!-- Upload Preview Box -->
+            <div id="imagePreviewContainer" style="display: none; margin-top: 1rem;">
+              <div class="preview-box">
+                <img id="imagePreviewImg" src="" alt="Selected civic evidence">
+                <div class="preview-label" id="previewFileName">evidence.jpg</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Description + Voice Assistant -->
+          <div class="form-group">
+            <div class="flex-between mb-1">
+              <label class="form-label mb-0" for="compDesc">Detailed Description *</label>
+              <!-- Voice Speech Button -->
+              <button type="button" class="btn btn-secondary btn-sm voice-btn" id="voiceBtn" title="Speak to dictate complaint">
+                🎙️ <span id="voiceBtnText">Voice Dictation</span>
+              </button>
+            </div>
+            <textarea id="compDesc" class="form-textarea" placeholder="Describe the severity, duration, and exact location of the issue..." required></textarea>
+            <div id="voiceStatus" class="color-primary mt-1" style="font-size: 0.8rem; display: none;">
+              Listening... Speak clearly into your microphone.
+            </div>
+          </div>
+
+          <!-- Location & GPS Auto-Detection -->
+          <div class="form-group">
+            <div class="flex-between mb-1">
+              <label class="form-label mb-0">Location Details *</label>
+              <button type="button" class="btn btn-secondary btn-sm" id="btnAutoGps">
+                📍 Auto-Detect GPS
+              </button>
+            </div>
+            <input type="text" id="compAddress" class="form-input mb-1" placeholder="e.g. 100 Feet Rd, Indiranagar, Bengaluru" required>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
+              <input type="text" id="compLat" class="form-input" placeholder="Latitude (12.9716)" readonly>
+              <input type="text" id="compLng" class="form-input" placeholder="Longitude (77.5946)" readonly>
+            </div>
+          </div>
+
+          <!-- Ward Selector -->
+          <div class="form-group">
+            <label class="form-label" for="compWard">BBMP Ward</label>
+            <select id="compWard" class="form-select">
+              <option value="Ward 80 - Dayananda Nagar / Indiranagar">Ward 80 - Dayananda Nagar / Indiranagar</option>
+              <option value="Ward 112 - Domlur">Ward 112 - Domlur</option>
+              <option value="Ward 151 - Koramangala">Ward 151 - Koramangala</option>
+              <option value="Ward 45 - Malleshwaram">Ward 45 - Malleshwaram</option>
+              <option value="Ward 84 - Rajajinagar">Ward 84 - Rajajinagar</option>
+              <option value="Ward 174 - HSR Layout">Ward 174 - HSR Layout</option>
+              <option value="Ward 85 - Doddanekkundi / Whitefield">Ward 85 - Doddanekkundi / Whitefield</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn btn-primary w-full" id="btnSubmitComplaint" style="padding: 0.85rem; font-size: 1rem;">
+            🔍 Submit &amp; Trigger Verification
+          </button>
+        </form>
+      </section>
+
+      <!-- Citizen Complaints History Column -->
+      <section class="glass-card">
+        <div class="section-header">
+          <h2 class="section-title">My Submitted Grievances</h2>
+          <button class="btn btn-secondary btn-sm" id="btnRefreshComplaints">🔄 Refresh</button>
+        </div>
+
+        <div id="complaintsListContainer">
+          <div class="text-center color-dim" style="padding: 3rem 1rem;">
+            Loading your grievances...
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+  </main>
+
+  <!-- Live Verification Result Modal -->
+  <div class="modal-overlay" id="verificationModal">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div class="flex-row gap-md">
+          <div class="auth-icon" style="width: 32px; height: 32px; font-size: 1rem;">⚡</div>
+          <h3>SatyaDrishti Triage Assessment</h3>
+        </div>
+        <button type="button" class="btn btn-secondary btn-sm" id="btnCloseModal">✕</button>
+      </div>
+
+      <div class="modal-body" id="verificationModalContent">
+        <!-- Injected via JavaScript -->
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" id="btnAcknowledgeModal">View in Dashboard</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/app.js"></script>
+  <script src="/js/dashboard.js"></script>
+  <script>
+    // Hamburger toggle
+    const hamburger = document.getElementById('navHamburger');
+    if (hamburger) hamburger.addEventListener('click', () => {
+      document.getElementById('navLinks').classList.toggle('open');
+    });
+
+    // Scroll shadow
+    window.addEventListener('scroll', () => {
+      document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 20);
+    });
+  </script>
+</body>
+</html>
